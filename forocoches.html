@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            textarea{
+                width: 150px;
+                height: 300px;
+            }
+        </style>
+        <script>
+            function cuenta(){
+                alert("Entra");
+                var txt = document.getElementById("text").value;
+
+                var result = txt.match(/\([0-9]\)/g);
+                console.log(result);
+                var total=0;
+                total= parseInt(total);
+                
+                for(var i=0; i<result.length; i++){
+                    console.log(result[1]);
+                    result[i] = result[i].replace('(', '');
+                    result[i] = result[i].replace(')', '');
+                    
+                    result[i] = parseInt(result[i]);
+                    
+                    total += result[i];
+                    
+                    //document.getElementById("texto").innerHTML += result[i];
+                    
+                    
+                }
+                
+                document.getElementById("texto").innerHTML += "</br>Foreros que han pagado: "+result.length;
+                document.getElementById("texto").innerHTML += "</br>Total de llaveros: "+total;
+            }
+            
+        </script>
+    </head>
+<body>
+    <textarea id="text"></textarea>
+    <input type="button" onclick="cuenta()" value="Cuenta" >
+    <p id="texto"></p>
+</body>
+</html> 
+
